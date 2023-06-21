@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="methods" thread-count="3" verbose="2">
+    <test name="Removing Repeating Letters Test">
+        <groups>
+            <run>
+                <include name="repeating"/>
+                <include name="exceptions"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestNGTests"/>
+        </classes>
+    </test>
+</suite>

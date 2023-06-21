@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="1">
+    <test name="Exception Test">
+        <groups>
+            <run>
+                <exclude name="repeating"/>
+                <include name="exceptions"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestNGTests"/>
+        </classes>
+    </test>
+</suite>
