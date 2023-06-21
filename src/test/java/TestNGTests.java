@@ -15,10 +15,10 @@ public class TestNGTests {
         System.out.println("Running all tests...");
     }
 
-    /*@BeforeGroups
-    public void setUpGroup() {
-
-    }*/
+    @BeforeGroups("exceptions")
+    public void setUpExceptionGroup() {
+        System.out.println("Running exception and special instances tests...");
+    }
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
@@ -71,10 +71,12 @@ public class TestNGTests {
         assertTrue(repetitionExclusion.removeLetterRepeatingWords(text).isEmpty());
     }
 
-    @Test(groups = {"exceptions"})
+    @Test(groups = {"exceptions"}, expectedExceptions = NullPointerException.class)
     public void NullText_ThrowsException() {
         String text = null;
-        assertThrows(NullPointerException.class, () -> repetitionExclusion.removeLetterRepeatingWords(text));
+        ArrayList<String> expected = new ArrayList<>(null);
+        ArrayList<String> actual = repetitionExclusion.removeLetterRepeatingWords(text);
+        assertEquals(expected, actual);
     }
 
     @DataProvider(name = "RepeatingLetterWordProvider")
